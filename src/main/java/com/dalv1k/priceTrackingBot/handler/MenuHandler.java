@@ -23,7 +23,7 @@ public class MenuHandler {
             case "Відслідкувати": {
                 user.setBotState("ADD_TRACK");
                 message = Button.getOneButton(update.getMessage().getChatId(),
-                        "Надішли мені повне посилання на товар",
+                        "Надішліть мені повне посилання на товар",
                         "До головного меню");
                 myBot.execute(message);
                 break;
@@ -64,6 +64,10 @@ public class MenuHandler {
                 message.setChatId(String.valueOf(update.getMessage().getChatId()));
                 myBot.execute(message);
                 break;
+            }
+            default:{
+                message.setChatId(String.valueOf(update.getMessage().getChatId()));
+                message.setText("Використайте меню");
             }
 
         }

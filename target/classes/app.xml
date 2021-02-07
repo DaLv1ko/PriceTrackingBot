@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="user"
-    class="com.dalv1k.webhook_bot_test.entity.User">
+    class="com.dalv1k.priceTrackingBot.entity.User">
     </bean>
     <bean id="update"
           class="org.telegram.telegrambots.meta.api.objects.Update">

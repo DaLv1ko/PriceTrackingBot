@@ -24,7 +24,7 @@ public class AddTrackHandler {
             case "ACCEPT": {
                 System.out.println("accept");
                 if (update.getMessage().getText().equals("Додати ще")) {
-                    message = Button.getOneButton(update.getMessage().getChatId(), "Додавай.", "До головного меню");
+                    message = Button.getOneButton(update.getMessage().getChatId(), "Надішліть мені повне посилання на товар", "До головного меню");
                     user.setBotState("ADD_TRACK");
                     userRepo.save(user);
                 }

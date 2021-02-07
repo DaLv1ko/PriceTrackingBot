@@ -17,11 +17,13 @@ public class Checker {
         List<Link> links = linkRepo.findAll();
         for (Link l : links) {
             int newPrice = Parser.parseMediaExpert(l.getLink());
-            if (newPrice < l.getPrice()) {
+            if (newPrice != l.getPrice()) {
                 User user = userRepo.getUserById(l.getUserId());
                 SendMessage sendMessage = new SendMessage();
                 sendMessage.setChatId(String.valueOf(user.getChatId()));
                 sendMessage.setText("Нова ціна для:\n" + l.getLink() + "\nСтара ціна: " + l.getPrice() + "\nНова: " + newPrice);
+                l.setPrice(newPrice);
+                linkRepo.save(l);
                 myBot.execute(sendMessage);
             }
         }
