@@ -61,6 +61,7 @@ public class MyBot extends TelegramWebhookBot {
         SendMessage message = new SendMessage();
         message.setChatId("192496395");
         message.setText("Я тут работаю. Все ок.");
+        execute(message);
     }
 
 
