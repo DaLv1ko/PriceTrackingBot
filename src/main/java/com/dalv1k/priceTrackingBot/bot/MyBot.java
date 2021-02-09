@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -51,8 +52,15 @@ public class MyBot extends TelegramWebhookBot {
     }
 
     @Scheduled(fixedRate = 1000*60*60*8)
-    public void live() throws TelegramApiException {
+    public void check() throws TelegramApiException {
         Checker.checkPrices(linkRepo,userRepo,this);
+    }
+
+    @Scheduled(fixedRate = 1000*60*60)
+    public void live() throws TelegramApiException {
+        SendMessage message = new SendMessage();
+        message.setChatId("192496395");
+        message.setText("Я тут работаю. Все ок.");
     }
 
 
