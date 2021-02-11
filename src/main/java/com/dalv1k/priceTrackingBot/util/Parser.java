@@ -8,10 +8,23 @@ import java.io.IOException;
 
 public class Parser {
 
-    public static int parseRozetka(String link) {
+    public static int parseEuro(String link)  {
+
+        try {
+            Document document = Jsoup.connect(link)
+                    .userAgent("Chrome/4.0.249.0 Safari/532.5")
+                    .referrer("http://www.google.com")
+                    .get();
+            String qwe = document.toString().replaceAll("[\\s]", "");
+            String[] q = qwe.split("\"offers\":\\{\"@type\":\"Offer\",\"priceCurrency\":\"PLN\",\"price\"");
+            q = q[1].split("priceValidUntil");
+            String priceStr = q[0].replaceAll("[^0-9]", "");
+            return Integer.parseInt(priceStr) / 100;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
-
     public static int parseMediaExpert(String link) {
         int price;
         try {

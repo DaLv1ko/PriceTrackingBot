@@ -97,8 +97,24 @@ public class AddTrackHandler {
                                 "До головного меню",
                                 "Повідомити адміністратора");
                     }
-                } else if (update.getMessage().getText().contains("rozetka.ua")) {
-                    //todo rozetka
+                } else if (update.getMessage().getText().contains("euro.com.pl")) {
+                    Link link = new Link();
+                    link.setLink(update.getMessage().getText());
+                    if (Parser.parseEuro(update.getMessage().getText()) != 0) {
+                        link.setPrice(Parser.parseEuro(update.getMessage().getText()));
+                        link.setUserId(user.getId());
+                        linkRepo.save(link);
+                        user.setBotState("PRICE_CHECK");
+                        userRepo.save(user);
+                        message = Button.getTwoButtons(update.getMessage().getChatId(), "Ціна на даний момент: " + link.getPrice() + ".",
+                                "Підтвердити", "Інша ціна");
+                    } else {
+
+                        message = Button.getTwoButtons(update.getMessage().getChatId(),
+                                "Ви ввели некоректне посилання. Перевірте будь ласка та надішліть ще раз. Також Ви можете повідомити про це адміністратора.",
+                                "До головного меню",
+                                "Повідомити адміністратора");
+                    }
                 } else {
                     user.setWrongLink(update.getMessage().getText());
                     userRepo.save(user);
