@@ -6,6 +6,7 @@ import com.dalv1k.priceTrackingBot.repo.UserRepo;
 import com.dalv1k.priceTrackingBot.util.Checker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -56,12 +57,18 @@ public class MyBot extends TelegramWebhookBot {
         Checker.checkPrices(linkRepo,userRepo,this);
     }
 
-    @Scheduled(fixedRate = 1000*60*60)
+    @Scheduled(fixedRate = 1000*60*60*6)
     public void live() throws TelegramApiException {
         SendMessage message = new SendMessage();
         message.setChatId("192496395");
         message.setText("Я тут работаю. Все ок.");
         execute(message);
+    }
+
+    @Scheduled(fixedDelay=900000)
+    public void herokuNotIdle(){
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getForObject("http://price-tracking-bot.herokuapp.com/", Object.class);
     }
 
 
