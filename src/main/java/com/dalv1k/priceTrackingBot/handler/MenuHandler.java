@@ -2,6 +2,7 @@ package com.dalv1k.priceTrackingBot.handler;
 
 import com.dalv1k.priceTrackingBot.bot.MyBot;
 import com.dalv1k.priceTrackingBot.bot.Button;
+import com.dalv1k.priceTrackingBot.bot.Test;
 import com.dalv1k.priceTrackingBot.entity.Link;
 import com.dalv1k.priceTrackingBot.entity.User;
 import com.dalv1k.priceTrackingBot.repo.LinkRepo;
@@ -63,6 +64,16 @@ public class MenuHandler {
                         "2. Якщо ти хочеш відслідковувати ціну на іншому сайті звернись до @dalv1k \n");
                 message.setChatId(String.valueOf(update.getMessage().getChatId()));
                 myBot.execute(message);
+                break;
+            }case "/admin": {
+                if (update.getMessage().getChatId()==192496395){
+                    SendMessage adminMessage = new SendMessage();
+                    Test test = new Test();
+                    adminMessage.setText(test.getName());
+                    adminMessage.setChatId("192496395");
+                    myBot.execute(adminMessage);
+                }
+
                 break;
             }
             default:{
