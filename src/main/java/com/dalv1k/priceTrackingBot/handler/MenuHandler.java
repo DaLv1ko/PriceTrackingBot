@@ -69,7 +69,8 @@ public class MenuHandler {
                 if (update.getMessage().getChatId()==192496395){
                     SendMessage adminMessage = new SendMessage();
                     Test test = new Test();
-                    adminMessage.setText(test.getName());
+//                    adminMessage.setText(test.getName());
+                    adminMessage.setText("123");
                     adminMessage.setChatId("192496395");
                     myBot.execute(adminMessage);
                 }
