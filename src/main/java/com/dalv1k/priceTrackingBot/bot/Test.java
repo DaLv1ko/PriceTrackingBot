@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Setter
-@PropertySource("classpath:application.properties")
+
 public class Test {
 
     @Value("${testdalv1k.name}")
