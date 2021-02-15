@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Setter
-
 public class Test {
 
     @Value("${testdalv1k.name}")
@@ -18,5 +17,12 @@ public class Test {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Test() {
     }
 }
