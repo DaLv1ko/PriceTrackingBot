@@ -7,12 +7,13 @@ import com.dalv1k.priceTrackingBot.entity.Link;
 import com.dalv1k.priceTrackingBot.entity.User;
 import com.dalv1k.priceTrackingBot.repo.LinkRepo;
 import com.dalv1k.priceTrackingBot.repo.UserRepo;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.List;
-
+@Service
 public class AddTrackHandler {
 
     public static void handle(Update update, MyBot myBot, UserRepo userRepo, LinkRepo linkRepo) throws TelegramApiException {

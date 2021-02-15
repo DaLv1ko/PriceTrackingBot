@@ -4,29 +4,13 @@ import com.dalv1k.priceTrackingBot.bot.MyBot;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Setter
 @Getter
 @Configuration
-@ComponentScan
-@ConfigurationProperties(prefix = "telegrambot")
+@ComponentScan("com.dalv1k.priceTrackingBot")
+@PropertySource("classpath:application.properties")
 public class BotConfig {
-    private String webHookPath;
-    private String botUserName;
-    private String botToken;
-
-    @Bean
-    public MyBot myBot(){
-        MyBot myTestBot = new MyBot();
-        myTestBot.setBotUserName(botUserName);
-        myTestBot.setWebHook(webHookPath);
-        myTestBot.setBotToken(botToken);
-        return myTestBot;
-    }
-
-
 
 }

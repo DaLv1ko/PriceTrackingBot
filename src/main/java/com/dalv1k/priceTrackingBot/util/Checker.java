@@ -16,7 +16,13 @@ public class Checker {
     public static void checkPrices(LinkRepo linkRepo, UserRepo userRepo, MyBot myBot) throws TelegramApiException {
         List<Link> links = linkRepo.findAll();
         for (Link l : links) {
-            int newPrice = Parser.parseMediaExpert(l.getLink());
+            int newPrice=l.getPrice();
+            if (l.getLink().contains("mediaexpert.pl")) {
+                newPrice = Parser.parseMediaExpert(l.getLink());
+            }
+            if (l.getLink().contains("euro.com.pl")) {
+                newPrice = Parser.parseEuro(l.getLink());
+            }
             if (newPrice != l.getPrice()) {
                 User user = userRepo.getUserById(l.getUserId());
                 SendMessage sendMessage = new SendMessage();

@@ -1,9 +1,0 @@
-+  Відслідкувати.мої відстеження.допомога - MENU
-+  Підтвердити.інша ціна - PRICE_CHECK
-+  Додати ще - ACCEPT  !!!Додавай виклик. 2р
-+  (Ввести лінк) -ADD_TRACK
-+  Після .інша ціна. замінити стан на ERROR
-+  ERROR - До головного меню
-+  delete - TRACK_LIST
-+  Tak.Hi - DELETE
-+  after TAK change state to TRACK_LIST

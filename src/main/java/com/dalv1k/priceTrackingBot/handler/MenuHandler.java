@@ -2,17 +2,18 @@ package com.dalv1k.priceTrackingBot.handler;
 
 import com.dalv1k.priceTrackingBot.bot.MyBot;
 import com.dalv1k.priceTrackingBot.bot.Button;
-import com.dalv1k.priceTrackingBot.bot.Test;
 import com.dalv1k.priceTrackingBot.entity.Link;
 import com.dalv1k.priceTrackingBot.entity.User;
 import com.dalv1k.priceTrackingBot.repo.LinkRepo;
 import com.dalv1k.priceTrackingBot.repo.UserRepo;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.List;
 
+@Service
 public class MenuHandler {
 
 
@@ -66,22 +67,7 @@ public class MenuHandler {
                 myBot.execute(message);
                 break;
             }
-//            case "admin": {
-//                if (update.getMessage().getChatId()==192496395){
-//                    SendMessage adminMessage = new SendMessage();
-//                    SendMessage adminMessage2 = new SendMessage();
-//                    Test test = new Test();
-////
-//                    adminMessage.setText("123");
-//                    adminMessage2.setText(test.getName());
-//                    adminMessage.setChatId("192496395");
-//                    adminMessage2.setChatId("192496395");
-//                    myBot.execute(adminMessage);
-//                    myBot.execute(adminMessage2);
-//                }
-//
-//                break;
-//            }
+
             default: {
                 message.setChatId(String.valueOf(update.getMessage().getChatId()));
                 message.setText("Використайте меню");

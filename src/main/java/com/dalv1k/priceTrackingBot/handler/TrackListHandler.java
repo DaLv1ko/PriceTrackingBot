@@ -5,11 +5,13 @@ import com.dalv1k.priceTrackingBot.bot.Button;
 import com.dalv1k.priceTrackingBot.entity.User;
 import com.dalv1k.priceTrackingBot.repo.LinkRepo;
 import com.dalv1k.priceTrackingBot.repo.UserRepo;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+@Service
 public class TrackListHandler {
 
     public static void handle(Update update, UserRepo userRepo, MyBot myBot, LinkRepo linkRepo) throws TelegramApiException {
