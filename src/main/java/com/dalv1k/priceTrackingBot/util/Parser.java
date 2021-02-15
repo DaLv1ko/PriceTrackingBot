@@ -43,6 +43,7 @@ public class Parser {
                    return price;
                 } else {
                     element = document.select("div.main-price.is-big").first();
+                    System.out.println(element);
                     String text = element.text();
                     String priceStr = text.replaceAll("[^0-9]", "");
                     price = Integer.parseInt(priceStr);
