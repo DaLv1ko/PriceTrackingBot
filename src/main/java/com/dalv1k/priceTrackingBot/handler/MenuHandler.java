@@ -65,23 +65,24 @@ public class MenuHandler {
                 message.setChatId(String.valueOf(update.getMessage().getChatId()));
                 myBot.execute(message);
                 break;
-            }case "admin": {
-                if (update.getMessage().getChatId()==192496395){
-                    SendMessage adminMessage = new SendMessage();
-                    SendMessage adminMessage2 = new SendMessage();
-                    Test test = new Test();
-//
-                    adminMessage.setText("123");
-                    adminMessage2.setText(test.getName());
-                    adminMessage.setChatId("192496395");
-                    adminMessage2.setChatId("192496395");
-                    myBot.execute(adminMessage);
-                    myBot.execute(adminMessage2);
-                }
-
-                break;
             }
-            default:{
+//            case "admin": {
+//                if (update.getMessage().getChatId()==192496395){
+//                    SendMessage adminMessage = new SendMessage();
+//                    SendMessage adminMessage2 = new SendMessage();
+//                    Test test = new Test();
+////
+//                    adminMessage.setText("123");
+//                    adminMessage2.setText(test.getName());
+//                    adminMessage.setChatId("192496395");
+//                    adminMessage2.setChatId("192496395");
+//                    myBot.execute(adminMessage);
+//                    myBot.execute(adminMessage2);
+//                }
+//
+//                break;
+//            }
+            default: {
                 message.setChatId(String.valueOf(update.getMessage().getChatId()));
                 message.setText("Використайте меню");
             }
