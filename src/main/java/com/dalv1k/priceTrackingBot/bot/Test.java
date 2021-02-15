@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Setter
 public class Test {
 
-    @Value("${testdalv1k.name}")
+  //  @Value("${testdalv1k.name}")
     private String name;
 
     public String getName() {
