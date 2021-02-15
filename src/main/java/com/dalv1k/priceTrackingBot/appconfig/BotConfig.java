@@ -30,7 +30,7 @@ public class BotConfig {
     }
 
     @Bean
-    public Test testBean(){
+    public Test test(){
         Test test1 = new Test();
         test1.setName(test);
             return test1;

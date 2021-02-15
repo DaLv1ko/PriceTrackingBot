@@ -1,5 +1,6 @@
 package com.dalv1k.priceTrackingBot.handler;
 
+import com.dalv1k.priceTrackingBot.appconfig.BotConfig;
 import com.dalv1k.priceTrackingBot.bot.MyBot;
 import com.dalv1k.priceTrackingBot.bot.Button;
 import com.dalv1k.priceTrackingBot.bot.Test;
@@ -7,6 +8,7 @@ import com.dalv1k.priceTrackingBot.entity.Link;
 import com.dalv1k.priceTrackingBot.entity.User;
 import com.dalv1k.priceTrackingBot.repo.LinkRepo;
 import com.dalv1k.priceTrackingBot.repo.UserRepo;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -68,9 +70,11 @@ public class MenuHandler {
             }
                 case "admin": {
                     if (update.getMessage().getChatId()==192496395){
+
+                        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(BotConfig.class);
+                        Test test = context.getBean("test", Test.class);
                         SendMessage adminMessage = new SendMessage();
                         SendMessage adminMessage2 = new SendMessage();
-                        Test test = new Test();
                         System.out.println("HERE ===> " +test.getName());
                         adminMessage.setText("123");
                         adminMessage2.setText(test.getName());

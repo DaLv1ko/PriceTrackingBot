@@ -8,11 +8,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+
 @Component
-@Setter
 public class Test {
 
-  //  @Value("${testdalv1k.name}")
+    @Value("${testdalv1k.name}")
     private String name;
 
     public String getName() {
@@ -23,6 +23,4 @@ public class Test {
         this.name = name;
     }
 
-    public Test() {
-    }
 }
