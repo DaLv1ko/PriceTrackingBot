@@ -5,7 +5,10 @@ import com.dalv1k.priceTrackingBot.repo.LinkRepo;
 import com.dalv1k.priceTrackingBot.repo.UserRepo;
 import com.dalv1k.priceTrackingBot.util.Checker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -13,11 +16,16 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-
+@Component
 public class MyBot extends TelegramWebhookBot {
 
-    private String webHookPath;
+    @Value("${botUserName}")
     private String botUserName;
+
+    @Value("${webHookPath}")
+    private String webHookPath;
+
+    @Value("${botToken}")
     private String botToken;
 
     @Autowired

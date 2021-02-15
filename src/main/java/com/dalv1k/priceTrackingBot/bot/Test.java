@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 
-@Component
+@Component("myTestBean")
 public class Test {
 
     @Value("${testdalv1k.name}")
