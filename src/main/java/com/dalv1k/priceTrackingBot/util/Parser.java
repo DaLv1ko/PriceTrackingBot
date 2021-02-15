@@ -64,6 +64,9 @@ public class Parser {
         } catch (IOException e) {
             price = 0;
             System.out.println("Parser2: " + e);
+        } catch (NullPointerException e){
+            System.out.println( "Parser3: "+e);
+            price =0;
         }
         return price;
     }

@@ -77,9 +77,9 @@ public class MyBot extends TelegramWebhookBot {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getForObject("http://price-tracking-bot.herokuapp.com/", Object.class);
         } catch (HttpClientErrorException e){
-            System.out.println(e);
+            System.out.println("ERROR ===> "+e);
         }
     }
-    
+
 
 }
