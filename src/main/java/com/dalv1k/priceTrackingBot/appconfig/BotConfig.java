@@ -29,12 +29,12 @@ public class BotConfig {
         return myTestBot;
     }
 
-    @Bean
-    public Test test(){
-        Test test1 = new Test();
-        test1.setName(test);
-            return test1;
-    }
+//    @Bean
+//    public Test test(){
+//        Test test1 = new Test();
+//        test1.setName(test);
+//            return test1;
+//    }
 
 
 
