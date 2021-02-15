@@ -21,7 +21,7 @@ public class Checker {
                 newPrice = Parser.parseMediaExpert(l.getLink());
             }
             if (l.getLink().contains("euro.com.pl")) {
-                newPrice = Parser.parseMediaExpert(l.getLink());
+                newPrice = Parser.parseEuro(l.getLink());
             }
             if (newPrice != l.getPrice()) {
                 User user = userRepo.getUserById(l.getUserId());
