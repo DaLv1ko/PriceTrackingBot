@@ -61,7 +61,8 @@ public class MyBot extends TelegramWebhookBot {
         return null;
     }
 
-    @Scheduled(fixedRate = 1000*60*60*8)
+   // @Scheduled(fixedRate = 1000*60*60*8)
+    @Scheduled(fixedRate = 1000*60*5)
     public void check() throws TelegramApiException {
         Checker.checkPrices(linkRepo,userRepo,this);
         SendMessage message = new SendMessage();
