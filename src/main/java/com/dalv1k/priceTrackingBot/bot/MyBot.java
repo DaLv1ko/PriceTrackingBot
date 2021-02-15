@@ -61,8 +61,7 @@ public class MyBot extends TelegramWebhookBot {
         return null;
     }
 
-   // @Scheduled(fixedRate = 1000*60*60*8)
-    @Scheduled(fixedRate = 1000*60*5)
+    @Scheduled(fixedRate = 1000*60*60*8)
     public void check() throws TelegramApiException {
         Checker.checkPrices(linkRepo,userRepo,this);
         SendMessage message = new SendMessage();
@@ -77,9 +76,8 @@ public class MyBot extends TelegramWebhookBot {
         try {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getForObject("http://price-tracking-bot.herokuapp.com/", Object.class);
-            System.out.println("kaef");
         } catch (HttpClientErrorException e){
-            System.out.println("ERROR ===> "+e);
+            System.out.println("NotIdleMethod");
         }
     }
 

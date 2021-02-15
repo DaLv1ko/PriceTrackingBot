@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Parser {
 
-    public static int parseEuro(String link)  {
+    public static int parseEuro(String link) {
 
         try {
             Document document = Jsoup.connect(link)
@@ -25,6 +25,7 @@ public class Parser {
         }
         return 0;
     }
+
     public static int parseMediaExpert(String link) {
         int price;
         try {
@@ -40,33 +41,32 @@ public class Parser {
                     String text = element.text();
                     String priceStr = text.replaceAll("[^0-9]", "");
                     price = Integer.parseInt(priceStr);
-                   return price;
+                    return price;
                 } else {
                     element = document.select("div.main-price.is-big").first();
-                    System.out.println(element);
                     String text = element.text();
                     String priceStr = text.replaceAll("[^0-9]", "");
                     price = Integer.parseInt(priceStr);
-                    price =price/100;
+                    price = price / 100;
                     return price;
                 }
             } else {
                 String text = element.text();
                 String priceStr = text.replaceAll("[^0-9]", "");
                 price = Integer.parseInt(priceStr);
-                price =price/100;
+                price = price / 100;
                 return price;
             }
 
         } catch (IllegalArgumentException e) {
-            System.out.println("Parser: " + e);
+            System.out.println("Parser1: " + e);
             price = 0;
         } catch (IOException e) {
             price = 0;
             System.out.println("Parser2: " + e);
-        } catch (NullPointerException e){
-            System.out.println( "Parser3: "+e);
-            price =0;
+        } catch (NullPointerException e) {
+            System.out.println("Parser3: " + e);
+            price = 0;
         }
         return price;
     }
